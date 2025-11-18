@@ -1,0 +1,16 @@
+{% load menu_extras %}
+
+<li>
+    <a href="{% if item.url|slice:"0:1" == '/' %}{{ item.url }}{% else %}{% url item.url %}{% endif %}"
+       {% if item.url == current_path %}class="active"{% endif %}>
+       {{ item.name }}
+    </a>
+
+    {% if children_map|dict_get:item.id %}
+        <ul>
+            {% for child in children_map|dict_get:item.id %}
+                {% include "django_menu/menu_item.html" with item=child children_map=children_map current_path=current_path %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

@@ -1,0 +1,19 @@
+[
+  {
+    "model": "django_menu.menu",
+    "pk": 1,
+    "fields": {
+      "name": "main_menu"
+    }
+  },
+  {
+    "model": "django_menu.menuitem",
+    "pk": 1,
+    "fields": {
+      "menu": 1,
+      "name": "Home",
+      "url": "/home/",
+      "parent": null
+    }
+  }
+]
